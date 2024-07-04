@@ -20,7 +20,7 @@ TOKEN = 'hdri'
 EXTENSIONS = ['.hdri', '.tx']
 
 name = 'HDRI ColorSpace'
-group = CategoryGroups.NODES
+group = CategoryGroups.MAPS
 description = 'HDRI Filenodes incorrect colorspace.'
 level = SeverityLevels.CRITICAL
 autofix = True
