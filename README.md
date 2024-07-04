@@ -1,7 +1,7 @@
 Maya Sanity Checker
 -------------------
 
-![preview](https://github.com/MaxRocamora/SanityChecker/blob/master/sanityChecker/resources/images/tool_img.png)
+![preview](https://github.com/MaxRocamora/MayaSanityChecker/blob/master/sanityChecker/resources/images/tool_img.png)
 
 # Description
 This tool aims to check the sanity of the scene in Maya.  
