@@ -5,6 +5,7 @@ import maya.cmds as cmds
 
 from sanityChecker.libs.check import Check
 from sanityChecker.libs.enums import CategoryGroups, SeverityLevels
+from sanityChecker.maya.helpers import get_scene_mesh_transform_nodes
 from sanityChecker.resources.logger import sanity_stream_logger
 
 log = sanity_stream_logger('SanityChecker')
@@ -25,7 +26,7 @@ class Check(Check):
         """Performs scan of this check on maya scene/nodes."""
         self.reset()
 
-        for node in list(cmds.ls(type='mesh', shortNames=True)):
+        for node in get_scene_mesh_transform_nodes():
             if cmds.getAttr(f'{node}.visibility') is False:
                 self.add_failed_node(node)
 
