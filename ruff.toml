@@ -1,0 +1,23 @@
+line-length = 90
+
+[lint]
+# ignore E402: module level import not at top of file
+# ignore D100: missing docstring in public module
+# ignore D202: no blank lines allowed after function docstring
+# ignore D101: missing docstring in public class
+ignore = ["E402", "D100", "D202", "D101"]
+select = ["D"]
+
+[lint.per-file-ignores]
+# Ignore `E402` (import violations) in all `__init__.py` files.
+"__init__.py" = ["E402"]
+
+[lint.pydocstyle]
+convention = "google"  # Accepts: "google", "numpy", or "pep257".
+
+[format]
+# Enable reformatting of code snippets in docstrings.
+docstring-code-format = true
+docstring-code-line-length = 109
+quote-style = "single"
+# exclude = ["example.py", "some_file.py"]

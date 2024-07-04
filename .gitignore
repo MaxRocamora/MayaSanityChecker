@@ -1,0 +1,6 @@
+__pycache__/
+*.sublime-project
+*.sublime-workspace
+*.pyc
+*.rar
+maya_sanity.code-workspace
