@@ -42,13 +42,18 @@ I recommend editing the checks as per your requirements.
 - Existing Namespaces in Scene
 - Legacy Render Layers in Scene
 - Default Views Visible in Scene
+- Multiple Context Nodes in Scene
+- Default Camera Nodes visible in Scene
 
 ## NODES Group
 
 - blindDataTemplate Nodes in Scene
 - Unconnected Color Sets Nodes in Scene
 - GroupID Nodes in Scene
-- Total Scene nodes exceeds limit
+- Total Scene nodes exceeds limit of 2000
+- Orphan Modeling Nodes in the scene
+- Orphan (nodeGraphEditorInfo, cameraView) Nodes in the scene
+- Unconnected Nodes (animCurve, renderSetup) in Scene
 - Unknown Nodes in Scene
 - XGen Nodes in Scene
 
@@ -56,13 +61,27 @@ I recommend editing the checks as per your requirements.
 
 - Animation Curves on Meshes
 - Empty UV Sets on Meshes
-- Arnold Max Subdivision Limit
-- Arnold Texture Max Memory
+- defaultHideFaceDataSet Nodes
+- History on Meshes
 - Lamina Faces on Meshes
+- Missing "map1" on mesh UVSets
+- Maya Viewport Smooth Meshes
+- Multiple Shapes on a single transform
+- Multiple UV Sets on Meshes
+- No Shading Group on Meshes
+- Non-Manifold Edges/Vertex on Meshes
+- Non Zero Pivot on Meshes
+- Non Zero Transform on Meshes
+- NSided Faces on Meshes
+- Arnold Max Subdivision Limit
+- Visibility Off on Meshes
 
 ## NAMING Group
 
 - Duplicate Names in Scene
+- Invalid Shape Name on Mesh
+- Invalid Shape Name on StandIn
+- Mesh name ending with number
 - Naming Convention for Mesh Suffix
 
 ## MAPS Group
@@ -72,6 +91,11 @@ I recommend editing the checks as per your requirements.
 - valid Colorspace value on maps
 - aiAutoTx enabled on maps.
 - old Colorspace value on maps
+- HDRI Incorrect Colorspace value on maps
+- Arnold MipMap Value 0 on maps
+- Missing Texture Files for file nodes
+- Missing TX Files for file nodes
+
 
 # Configuration
 
