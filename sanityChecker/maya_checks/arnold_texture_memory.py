@@ -30,7 +30,7 @@ class Check(Check):
 
         with contextlib.suppress(ValueError):
             if int(cmds.getAttr(ATTRIBUTE)) < VALUE:
-                self.add_failed_node('defaultArnoldRenderOptions')
+                self.add_failed_node('defaultArnoldRenderOptions.textureMaxMemoryMB')
 
     def fix(self):
         """Perform technical fix on this check."""
