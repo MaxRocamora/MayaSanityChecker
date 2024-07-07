@@ -73,7 +73,7 @@ CHECKS = {
     'shading': [
         'anim_curves',
         'aovs',
-        'arnold_texture_memory_limit',
+        'arnold_texture_memory',
         'atmosphere_nodes',
         'blind_data_node',
         'custom_views',
@@ -121,3 +121,14 @@ CHECKS = {
         'xgen_nodes',
     ],
 }
+
+
+if __name__ == '__main__':
+    # print all checks
+    unique_checks = set()
+    for category, checks in CHECKS.items():
+        for check in checks:
+            unique_checks.add(check)
+
+    for check in sorted(unique_checks):
+        print(check)
