@@ -95,7 +95,7 @@ CHECKS = {
         'invalid_shape_name_standin',
         'invalid_shape_name',
         'map_uv_set',
-        'maya_viewport_smoooth',
+        'viewport_smooth',
         'mesh_ending_number',
         'mipmap_bias',
         'missing_files',
