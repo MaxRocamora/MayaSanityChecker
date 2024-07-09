@@ -12,9 +12,11 @@ This folder contains the maya files used for testing the sanity checker individu
     * aovs
 
 - arnold_texture_memory.mb
-    * arnold_texture_memory_
+    * arnold_texture_memory
 
-atmosphere_nodes
+- atmosphere_nodes.mb
+    * atmosphere_nodes
+
 blind_data_node
 
 - custom_views.mb
@@ -54,7 +56,6 @@ hide_facedata_set
 lamina_faces
 legacy_rl
 map_uv_set
-maya_viewport_smoooth
 
 - naming.mb
     * mesh_suffix
@@ -96,5 +97,8 @@ unknown_nodes
 
 - visible_views.mb
     * visible_views
+
+- viewport_smooth.mb
+    * viewport_smooth
 
 xgen_nodes
