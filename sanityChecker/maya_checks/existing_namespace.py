@@ -10,7 +10,7 @@ from sanityChecker.resources.logger import sanity_stream_logger
 
 log = sanity_stream_logger('SanityChecker')
 
-IGNORE_NAMESPACES = ['LDV', 'STAGE']
+IGNORE_NAMESPACES = ['LDV', 'STAGE', 'lookdev_']
 DEFAULT_NAMESPACES = ['UI', 'shared']
 
 name = 'Existing Namespace'
