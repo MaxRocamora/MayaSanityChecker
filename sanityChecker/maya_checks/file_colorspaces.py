@@ -9,7 +9,7 @@ from sanityChecker.resources.logger import sanity_stream_logger
 
 log = sanity_stream_logger('SanityChecker')
 
-COLORSPACES = ['Utility - Raw', 'Utility - sRGB - Texture', 'acescg']
+COLORSPACES = ['Utility - Raw', 'Utility - sRGB - Texture', 'acescg', 'ACES - ACEScg']
 ATTRIBUTE = 'colorSpace'
 
 name = 'Files Colorspaces'
