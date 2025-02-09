@@ -4,10 +4,15 @@
 # ----------------------------------------------------------------------------------------
 import maya.cmds as cmds
 
-from PySide2.QtCore import Qt
-from PySide2 import QtUiTools
-from PySide2.QtWidgets import QMenu, QAction, QMainWindow, QTreeWidgetItem
-from PySide2.QtGui import QCursor
+try:
+    from PySide2.QtCore import Qt
+    from PySide2 import QtUiTools
+    from PySide2.QtWidgets import QMenu, QAction, QMainWindow, QTreeWidgetItem
+    from PySide2.QtGui import QCursor
+except ImportError:
+    from PySide6.QtCore import Qt
+    from PySide6 import QtUiTools
+    from PySide6.QtGui import QMenu, QAction, QMainWindow, QTreeWidgetItem, QCursor
 
 from sanityChecker.libs.tree_controller import TreeController
 from sanityChecker.resources.loader_maya import get_maya_window
