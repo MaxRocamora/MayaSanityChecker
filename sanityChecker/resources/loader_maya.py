@@ -2,9 +2,14 @@
 # Maya Sanity Checker / Maximiliano Rocamora
 # https://github.com/MaxRocamora/SanityChecker
 # ----------------------------------------------------------------------------------------
-from PySide2 import QtWidgets
-from shiboken2 import wrapInstance
-import maya.OpenMayaUI as omui
+try:
+    from PySide2 import QtWidgets
+    from shiboken2 import wrapInstance
+    import maya.OpenMayaUI as omui
+except ImportError:
+    from PySide6 import QtWidgets
+    from shiboken6 import wrapInstance
+    import maya.api.OpenMayaUI as omui
 
 
 def get_maya_window():
