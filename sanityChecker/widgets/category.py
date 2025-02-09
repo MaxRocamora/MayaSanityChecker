@@ -2,8 +2,12 @@
 # Maya Sanity Checker / Maximiliano Rocamora
 # https://github.com/MaxRocamora/SanityChecker
 # ----------------------------------------------------------------------------------------
-from PySide2.QtWidgets import QTreeWidgetItem
-from PySide2 import QtGui
+try:
+    from PySide2.QtWidgets import QTreeWidgetItem
+    from PySide2 import QtGui
+except ImportError:
+    from PySide6.QtWidgets import QTreeWidgetItem
+    from PySide6 import QtGui
 
 from sanityChecker.libs.enums import CategoryGroups
 from sanityChecker.widgets.group import GroupTreeItem
