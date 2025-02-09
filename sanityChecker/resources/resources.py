@@ -3,9 +3,15 @@
 # https://github.com/MaxRocamora/SanityChecker
 # ----------------------------------------------------------------------------------------
 import os
-from PySide2.QtGui import QIcon, QPixmap, QColor
-from PySide2.QtCore import QSize
-from PySide2.QtWidgets import QMainWindow, QPushButton, QGraphicsDropShadowEffect
+
+try:
+    from PySide2.QtGui import QIcon, QPixmap, QColor
+    from PySide2.QtCore import QSize
+    from PySide2.QtWidgets import QMainWindow, QPushButton, QGraphicsDropShadowEffect
+except ImportError:
+    from PySide6.QtGui import QIcon, QPixmap, QColor
+    from PySide6.QtCore import QSize
+    from PySide6.QtWidgets import QMainWindow, QPushButton, QGraphicsDropShadowEffect
 
 # base folder for Icons
 icon_path = os.path.join(os.path.dirname(__file__), 'icons')
