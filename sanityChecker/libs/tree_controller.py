@@ -2,7 +2,10 @@
 # Maya Sanity Checker / Maximiliano Rocamora
 # https://github.com/MaxRocamora/SanityChecker
 # ----------------------------------------------------------------------------------------
-from PySide2.QtWidgets import QTreeWidgetItemIterator, QTreeWidget
+try:
+    from PySide2.QtWidgets import QTreeWidgetItemIterator, QTreeWidget
+except ImportError:
+    from PySide6.QtWidgets import QTreeWidgetItemIterator, QTreeWidget
 
 from sanityChecker.widgets.category import CategoryTreeItem
 from sanityChecker.libs.check_loader import check_loader
