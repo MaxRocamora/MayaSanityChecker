@@ -2,8 +2,12 @@
 # Maya Sanity Checker / Maximiliano Rocamora
 # https://github.com/MaxRocamora/SanityChecker
 # ----------------------------------------------------------------------------------------
-from PySide2.QtWidgets import QTreeWidgetItem
-from PySide2.QtGui import QColor
+try:
+    from PySide2.QtWidgets import QTreeWidgetItem
+    from PySide2 import QColor
+except ImportError:
+    from PySide6.QtWidgets import QTreeWidgetItem
+    from PySide6 import QColor
 
 from sanityChecker.libs.enums import Status
 from sanityChecker.widgets.maya_node import MayaNodeTreeItem
