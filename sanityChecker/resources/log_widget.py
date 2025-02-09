@@ -5,8 +5,12 @@
 import contextlib
 import logging
 
-from PySide2.QtWidgets import QPlainTextEdit
-from PySide2.QtGui import QFont
+try:
+    from PySide2.QtWidgets import QPlainTextEdit
+    from PySide2.QtGui import QFont
+except ImportError:
+    from PySide6.QtWidgets import QPlainTextEdit
+    from PySide6.QtGui import QFont
 
 COLORS = {
     logging.DEBUG: 'yellow',
@@ -42,8 +46,7 @@ class QtLogger(logging.Handler):
             log.addHandler(self)
 
         # set font, css, message format
-        font = QFont('nosuchfont')
-        font.setStyleHint(font.Monospace)
+        font = QFont('Courier New')
         self.widget.setFont(font)
         self.widget.setStyleSheet(
             """
