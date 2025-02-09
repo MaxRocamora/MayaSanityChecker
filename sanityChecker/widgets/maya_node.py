@@ -3,8 +3,13 @@
 # https://github.com/MaxRocamora/SanityChecker
 # ----------------------------------------------------------------------------------------
 import contextlib
-from PySide2.QtWidgets import QTreeWidgetItem
-from PySide2.QtGui import QColor
+
+try:
+    from PySide2.QtWidgets import QTreeWidgetItem
+    from PySide2 import QColor
+except ImportError:
+    from PySide6.QtWidgets import QTreeWidgetItem
+    from PySide6 import QColor
 
 import maya.cmds as cmds
 
