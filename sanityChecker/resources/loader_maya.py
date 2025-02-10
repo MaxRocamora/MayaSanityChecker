@@ -9,7 +9,7 @@ try:
 except ImportError:
     from PySide6 import QtWidgets
     from shiboken6 import wrapInstance
-    import maya.api.OpenMayaUI as omui
+    import maya.OpenMayaUI as omui
 
 
 def get_maya_window():
