@@ -12,7 +12,8 @@ try:
 except ImportError:
     from PySide6.QtCore import Qt
     from PySide6 import QtUiTools
-    from PySide6.QtGui import QMenu, QAction, QMainWindow, QTreeWidgetItem, QCursor
+    from PySide6.QtWidgets import QMenu, QMainWindow, QTreeWidgetItem
+    from PySide6.QtGui import QCursor, QAction
 
 from sanityChecker.libs.tree_controller import TreeController
 from sanityChecker.resources.loader_maya import get_maya_window
