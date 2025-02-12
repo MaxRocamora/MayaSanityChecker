@@ -5,9 +5,13 @@
 try:
     from PySide2.QtWidgets import QTreeWidgetItem
     from PySide2.QtGui import QColor
+
+    PYSIDE_VERSION = 2
 except ImportError:
     from PySide6.QtWidgets import QTreeWidgetItem
     from PySide6.QtGui import QColor
+
+    PYSIDE_VERSION = 6
 
 from sanityChecker.libs.enums import CategoryGroups
 from sanityChecker.widgets.group import GroupTreeItem
@@ -27,16 +31,19 @@ class CategoryTreeItem(QTreeWidgetItem):
         self._name = name
         self.setText(0, name.upper())
         self.setIcon(0, self.icon())
-
-        try:
-            self.setBackgroundColor(0, QColor(50, 50, 50))
-        except AttributeError:
-            self.setBackground(0, QColor(50, 50, 50))
+        self.set_background_color(0, QColor(50, 50, 50))
 
         self.setExpanded(1)
 
         for group in CategoryGroups:
             GroupTreeItem(self, name=group.value, checks=checks[group.value])
+
+    def set_background_color(self, index: int, color: QColor):
+        """Sets text color for this item."""
+        if PYSIDE_VERSION == 2:
+            self.setBackgroundColor(index, color)
+        else:
+            self.setBackground(index, color)
 
     def name(self):
         """Returns name of this category."""
