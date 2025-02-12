@@ -15,7 +15,11 @@ from sanityChecker.config.config import CHECKS
 
 class TreeController:
     def __init__(self, tree: QTreeWidget):
-        """Handles qt tree operations."""
+        """Initialize the TreeController.
+
+        Args:
+            tree (QTreeWidget): The tree widget to control.
+        """
         self.tree = tree
         self.tree.clear()
 
