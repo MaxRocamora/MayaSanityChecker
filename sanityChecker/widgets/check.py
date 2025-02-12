@@ -5,9 +5,13 @@
 try:
     from PySide2.QtWidgets import QTreeWidgetItem
     from PySide2.QtGui import QColor
+
+    PYSIDE_VERSION = 2
 except ImportError:
     from PySide6.QtWidgets import QTreeWidgetItem
     from PySide6.QtGui import QColor
+
+    PYSIDE_VERSION = 6
 
 from sanityChecker.libs.enums import Status
 from sanityChecker.widgets.maya_node import MayaNodeTreeItem
@@ -31,9 +35,9 @@ class CheckTreeItem(QTreeWidgetItem):
 
     def set_text_color(self, index: int, color: QColor):
         """Sets text color for this item."""
-        try:
+        if PYSIDE_VERSION == 2:
             self.setTextColor(index, color)
-        except AttributeError:
+        else:
             self.setForeground(index, color)
 
     def name(self):
