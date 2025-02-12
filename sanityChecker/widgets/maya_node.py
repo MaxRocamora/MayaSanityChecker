@@ -6,10 +6,10 @@ import contextlib
 
 try:
     from PySide2.QtWidgets import QTreeWidgetItem
-    from PySide2 import QColor
+    from PySide2.QtGui import QColor
 except ImportError:
     from PySide6.QtWidgets import QTreeWidgetItem
-    from PySide6 import QColor
+    from PySide6.QtGui import QColor
 
 import maya.cmds as cmds
 

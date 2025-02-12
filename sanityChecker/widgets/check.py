@@ -4,10 +4,10 @@
 # ----------------------------------------------------------------------------------------
 try:
     from PySide2.QtWidgets import QTreeWidgetItem
-    from PySide2 import QColor
+    from PySide2.QtGui import QColor
 except ImportError:
     from PySide6.QtWidgets import QTreeWidgetItem
-    from PySide6 import QColor
+    from PySide6.QtGui import QColor
 
 from sanityChecker.libs.enums import Status
 from sanityChecker.widgets.maya_node import MayaNodeTreeItem
@@ -27,7 +27,14 @@ class CheckTreeItem(QTreeWidgetItem):
         self._check = check
         self.setText(0, name)
         self.setIcon(0, check.stand_by_icon())
-        self.setTextColor(0, QColor(235, 235, 235))
+        self.set_text_color(0, QColor(235, 235, 235))
+
+    def set_text_color(self, index: int, color: QColor):
+        """Sets text color for this item."""
+        try:
+            self.setTextColor(index, color)
+        except AttributeError:
+            self.setForeground(index, color)
 
     def name(self):
         """Returns name of this check."""
@@ -81,14 +88,14 @@ class CheckTreeItem(QTreeWidgetItem):
 
             log.hint('-' * 50)
             self.setText(0, '{} ({})'.format(self.name(), len(self.check.nodes())))
-            self.setTextColor(0, QColor(255, 50, 50, 255))
+            self.set_text_color(0, QColor(255, 50, 50, 255))
 
             for node in self.check.nodes():
                 self.addChild(MayaNodeTreeItem(self, name=node.name()))
 
         else:
             self.setText(0, self.name())
-            self.setTextColor(0, QColor(230, 255, 230))
+            self.set_text_color(0, QColor(230, 255, 230))
             self._remove_all_children()
 
     def show_hint(self):
@@ -102,7 +109,7 @@ class CheckTreeItem(QTreeWidgetItem):
         self.setIcon(0, Icons.widget_check)
         self.setText(0, self.name())
         self.setIcon(0, self.check.stand_by_icon())
-        self.setTextColor(0, QColor(235, 235, 235))
+        self.set_text_color(0, QColor(235, 235, 235))
         self._remove_all_children()
 
     def _remove_all_children(self):

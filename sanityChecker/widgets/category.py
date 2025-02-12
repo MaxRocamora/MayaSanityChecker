@@ -4,10 +4,10 @@
 # ----------------------------------------------------------------------------------------
 try:
     from PySide2.QtWidgets import QTreeWidgetItem
-    from PySide2 import QtGui
+    from PySide2.QtGui import QColor
 except ImportError:
     from PySide6.QtWidgets import QTreeWidgetItem
-    from PySide6 import QtGui
+    from PySide6.QtGui import QColor
 
 from sanityChecker.libs.enums import CategoryGroups
 from sanityChecker.widgets.group import GroupTreeItem
@@ -27,7 +27,12 @@ class CategoryTreeItem(QTreeWidgetItem):
         self._name = name
         self.setText(0, name.upper())
         self.setIcon(0, self.icon())
-        self.setBackgroundColor(0, QtGui.QColor(50, 50, 50))
+
+        try:
+            self.setBackgroundColor(0, QColor(50, 50, 50))
+        except AttributeError:
+            self.setBackground(0, QColor(50, 50, 50))
+
         self.setExpanded(1)
 
         for group in CategoryGroups:
