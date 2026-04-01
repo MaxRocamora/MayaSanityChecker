@@ -23,11 +23,17 @@
 # 03/2022 v4.1.3 added new check for context_node, refactor groups to enum
 # 02/2025 v4.2.0 PySide6 support
 # 04/2026 v4.3.0 fixed PySide2/PySide6 compatibility for tree item colors
+# 04/2026 v4.4.0 stability and cleanup release: fixed viewport_smooth autofix and
+# context-menu empty selection crash, fixed logger handler cleanup and close event flow,
+# fixed severity color mapping and scene check typo, improved check loader robustness,
+# added startup self-check logging, standardized check autofix node-name handling,
+# replaced print-based error reporting with logger calls, migrated legacy string
+# formatting to f-strings.
 # ----------------------------------------------------------------------------------------
 import os
 
 VERSION_MAJOR = 4
-VERSION_MINOR = 3
+VERSION_MINOR = 4
 VERSION_PATCH = 0
 
 version = f'{VERSION_MAJOR}.{VERSION_MINOR}.{VERSION_PATCH}'
