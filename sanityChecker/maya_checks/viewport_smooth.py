@@ -35,6 +35,6 @@ class Check(Check):
 
     def fix(self):
         """Perform technical fix on this check."""
-        for key in self.nodes():
-            cmds.select(self.flag_nodes[key][3], r=True)
+        for node in self.nodes():
+            cmds.select(node.name(), r=True)
             cmds.displaySmoothness(du=0, dv=0, pw=4, ps=1, polygonObject=1)
