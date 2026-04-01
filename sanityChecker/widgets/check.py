@@ -91,7 +91,7 @@ class CheckTreeItem(QTreeWidgetItem):
                 log.hint(node.name())
 
             log.hint('-' * 50)
-            self.setText(0, '{} ({})'.format(self.name(), len(self.check.nodes())))
+            self.setText(0, f'{self.name()} ({len(self.check.nodes())})')
             self.set_text_color(0, QColor(255, 50, 50, 255))
 
             for node in self.check.nodes():
