@@ -43,7 +43,8 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
 
-        for mesh in self.nodes():
+        for node in self.nodes():
+            mesh = node.name()
             old_shape_name = cmds.listRelatives(mesh, pa=True, type='shape')
 
             if '|' in mesh:
