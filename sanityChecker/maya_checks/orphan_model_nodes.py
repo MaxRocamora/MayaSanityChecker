@@ -41,4 +41,4 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            cmds.delete(node)
+            cmds.delete(node.name())
