@@ -111,7 +111,11 @@ class SanityChecker(QMainWindow):
 
     def open_menu(self, QPoint):
         """Opens right click menu."""
-        item = self.ui.main_tree.selectedItems()[0]
+        selected_items = self.ui.main_tree.selectedItems()
+        if not selected_items:
+            return
+
+        item = selected_items[0]
         self.menu = QMenu()
 
         if item.item_type == 'category':
@@ -179,7 +183,7 @@ class SanityChecker(QMainWindow):
 
     def closeEvent(self, event):  # noqa: D102
         self.loggers.close()
-        self.close()
+        event.accept()
 
 
 # ----------------------------------------------------------------------------------------
