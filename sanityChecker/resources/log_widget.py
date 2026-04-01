@@ -62,7 +62,7 @@ class QtLogger(logging.Handler):
         """Removes all handlers from this widget."""
         for logger in self.loggers:
             if logger is not None:
-                logger.removeHandler(self.widget)
+                logger.removeHandler(self)
 
     def emit(self, record: logging.LogRecord):
         """Writes the message formatted, uses font color based on error level number.
