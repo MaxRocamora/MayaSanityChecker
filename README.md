@@ -11,8 +11,7 @@ The checks can be added or removed from the configuration file, same for categor
 **The best use case for this tool is to check the scene before publishing or sharing it with others.**  
 **Note:** Most of the checks are configured to my day to day needs, but you can edit the checks as per your requirements.
 
-
-## Install (Maya 2018/2019/2022)
+## Install (Maya 2018/2019/2022/2024/2025/2026)
 
 copy 'sanityChecker' folder into users/maya scripts folder
 
@@ -34,67 +33,67 @@ I recommend editing the checks as per your requirements.
 
 ## SCENE Group
 
-- Arnold Atmosphere Nodes in Scene
-- Arnold AOV Nodes in Scene
-- Custom User Views on the Scene
-- Display Layers in Scene
-- Empty Namespaces in Scene
-- Existing Namespaces in Scene
-- Legacy Render Layers in Scene
-- Default Views Visible in Scene
-- Multiple Context Nodes in Scene
-- Default Camera Nodes visible in Scene
+- Arnold Texture Memory Limit
+- AOV in Scene
+- Atmosphere Nodes
+- Custom User View on scene
+- DisplayLayers
+- Empty Namespace
+- Existing Namespace
+- Legacy RenderLayers
+- Multiple Arcane ContextNode
+- Visible View Nodes on scene
 
 ## NODES Group
 
-- blindDataTemplate Nodes in Scene
-- Unconnected Color Sets Nodes in Scene
-- GroupID Nodes in Scene
-- Total Scene nodes exceeds limit of 2000
-- Orphan Modeling Nodes in the scene
-- Orphan (nodeGraphEditorInfo, cameraView) Nodes in the scene
-- Unconnected Nodes (animCurve, renderSetup) in Scene
-- Unknown Nodes in Scene
+- blindDataTemplate Node
+- Unconnected createColorSet Nodes
+- GroupID Nodes
+- Scene Total Nodes: Limit of 2000
+- Model Orphan Nodes
+- Scene Orphan Nodes
+- Unconnected Nodes
+- Unknown Nodes
 - XGen Nodes in Scene
 
 ## MESHES Group
 
-- Animation Curves on Meshes
-- Empty UV Sets on Meshes
-- defaultHideFaceDataSet Nodes
-- History on Meshes
-- Lamina Faces on Meshes
-- Missing "map1" on mesh UVSets
-- Maya Viewport Smooth Meshes
-- Multiple Shapes on a single transform
-- Multiple UV Sets on Meshes
-- No Shading Group on Meshes
-- Non-Manifold Edges/Vertex on Meshes
-- Non Zero Pivot on Meshes
-- Non Zero Transform on Meshes
-- NSided Faces on Meshes
-- Arnold Max Subdivision Limit
-- Visibility Off on Meshes
+- Animation Curves on meshes
+- Empty UVSet on Mesh
+- Hidden Faces or defaultHideFaceDataSet Node
+- History on Mesh
+- LaminaFaces
+- Mesh missing map1 UVSet
+- Display Smoothness Enabled
+- Multiple Shapes on the same Transform Node
+- Multiple UV Sets on meshes
+- No Shading Group on mesh
+- Non Manifold Geometry
+- Non Zero Pivot on Mesh
+- Non Zero Transforms
+- NGonSide Polygon on Mesh
+- Arnold Max Subdivisions Iterations
+- Visibility Off
 
 ## NAMING Group
 
-- Duplicate Names in Scene
-- Invalid Shape Name on Mesh
-- Invalid Shape Name on StandIn
-- Mesh name ending with number
-- Naming Convention for Mesh Suffix
+- Duplicate Names
+- Invalid Shape Names
+- Invalid StandIn Shape Names
+- Meshes Names ending with numbers
+- Meshes with invalid pipeline suffixes.
 
 ## MAPS Group
 
-- alphaIsLuminance on maps
-- ignoreColorSpaceFileRules disabled on maps
-- valid Colorspace value on maps
-- aiAutoTx enabled on maps.
-- old Colorspace value on maps
-- HDRI Incorrect Colorspace value on maps
-- Arnold MipMap Value 0 on maps
-- Missing Texture Files for file nodes
-- Missing TX Files for file nodes
+- Alpha Luminance Attribute
+- ignoreColorSpaceFileRules Attribute Enabled
+- Files Colorspaces
+- Auto Generate Tx Attribute
+- Texture File with old colorspace
+- HDRI ColorSpace
+- Arnold MipmapBias Attribute at 0
+- Missing Filemaps
+- Missing TX Filemaps
 
 
 # Configuration
@@ -113,3 +112,19 @@ Custom Categories can be created just by editing this dictionary.
 4. Implement the `run` method in the class.
 5. Implement the `fix` method in the class if can have autofix.
 6. Add the check to the configuration file.
+
+## Changelog (v4.4.0)
+
+- Fixed viewport smooth autofix execution.
+- Fixed right-click context menu crash when no tree item is selected.
+- Fixed logger handler cleanup when closing the UI.
+- Fixed severity color mapping for check level progress bar.
+- Fixed scene config typo for viewport smooth check key.
+- Improved dynamic check loading with safer error handling.
+- Added startup self-check logs (loaded checks, unresolved config entries, shared checks).
+- Standardized autofix methods to use explicit flagged node names.
+- Replaced legacy `%s`/`.format(...)` string formatting with f-strings.
+
+## Note
+
+On version 5.0.0 I will drop support for PySide2 and Maya 2018/2019, so the minimum requirements will be Maya 2025 and PySide6.
