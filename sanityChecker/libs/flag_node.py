@@ -51,11 +51,11 @@ class FlagNodes:
 
     def __str__(self):
         """Return string representation of flagged nodes."""
-        return f'{self._check_name} - {len(self)} nodes flagged.'
+        return f'{self.check.name()} - {len(self)} nodes flagged.'
 
     def __repr__(self):
         """Return string representation of flagged nodes."""
-        return f'{self._check_name} - {len(self)} nodes flagged.'
+        return f'{self.check.name()} - {len(self)} nodes flagged.'
 
     def __bool__(self):
         """Return True if there are flagged nodes."""
