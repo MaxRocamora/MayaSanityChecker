@@ -52,7 +52,7 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            att = f'{node}.{ATTRIBUTES}'
+            att = f'{node.name()}.{ATTRIBUTES}'
             if cmds.getAttr(att) != VALUE:
                 cmds.setAttr(att, VALUE)
 
