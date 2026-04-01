@@ -35,4 +35,4 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            cmds.setAttr(f'{node}.{ATTRIBUTE}', VALUE)
+            cmds.setAttr(f'{node.name()}.{ATTRIBUTE}', VALUE)
