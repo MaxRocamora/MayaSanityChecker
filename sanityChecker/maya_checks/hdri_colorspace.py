@@ -42,7 +42,7 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            cmds.setAttr(f'{node}.{ATTRIBUTE}', VALUE, type='string')
+            cmds.setAttr(f'{node.name()}.{ATTRIBUTE}', VALUE, type='string')
 
     def get_hdri_nodes(self):
         """Collect file nodes with hdri extension only."""
