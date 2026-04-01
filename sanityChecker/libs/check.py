@@ -76,10 +76,6 @@ class Check:
         """Returns the filename of the check."""
         return self.__module__.split('.')[-1]
 
-    def nodes(self):
-        """Returns a list of flagged nodes."""
-        return self._nodes
-
     # ------------------------------------------------------------------------------------
     # Status Internal methods
     # ------------------------------------------------------------------------------------
