@@ -45,5 +45,6 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            colorspace = cmds.getAttr(f'{node}.{COLORSPACE_ATTRIBUTE}')
-            cmds.setAttr(f'{node}.{ALPHA_LUMINANCE_ATTRIBUTE}', VALUES[colorspace])
+            node_name = node.name()
+            colorspace = cmds.getAttr(f'{node_name}.{COLORSPACE_ATTRIBUTE}')
+            cmds.setAttr(f'{node_name}.{ALPHA_LUMINANCE_ATTRIBUTE}', VALUES[colorspace])
