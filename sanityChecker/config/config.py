@@ -16,7 +16,7 @@ CHECKS = {
         'hdri_colorspace',
         'invalid_shape_name_standin',
         'invalid_shape_name',
-        'maya_viewport_smoooth',
+        'viewport_smooth',
         'missing_files',
         'missing_tx_files',
         'multiple_context_node',
