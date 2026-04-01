@@ -33,7 +33,7 @@ class Check(Check):
     def fix(self):
         """Performs technical fix on this check."""
         for node in self.nodes():
-            cmds.delete(node)
+            cmds.delete(node.name())
 
     def get_xgen_nodes(self):
         """Collect nodes to scan from maya scene."""
