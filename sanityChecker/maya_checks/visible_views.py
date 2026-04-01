@@ -32,7 +32,7 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            cmds.setAttr(f'{node}.visibility', 0)
+            cmds.setAttr(f'{node.name()}.visibility', 0)
 
     def get_view_cameras(self):
         """Collect nodes to scan from maya scene."""
