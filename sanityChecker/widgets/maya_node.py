@@ -6,10 +6,10 @@ import contextlib
 
 try:
     from PySide2.QtWidgets import QTreeWidgetItem
-    from PySide2.QtGui import QColor
+    from PySide2.QtGui import QColor, QBrush
 except ImportError:
     from PySide6.QtWidgets import QTreeWidgetItem
-    from PySide6.QtGui import QColor
+    from PySide6.QtGui import QColor, QBrush
 
 import maya.cmds as cmds
 
@@ -28,7 +28,7 @@ class MayaNodeTreeItem(QTreeWidgetItem):
         self._name = name
         self.setText(0, name)
         self.setIcon(0, self.icon())
-        self.setTextColor(0, QColor(235, 235, 235))
+        self.setForeground(0, QBrush(QColor(235, 235, 235)))
 
     def name(self):
         """Returns name of this node."""
