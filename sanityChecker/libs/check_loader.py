@@ -16,7 +16,7 @@ CHECKS_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'maya_che
 def check_loader() -> list:
     """Collect checks dynamically from checks folder."""
     checks = []
-    for check_py_file in os.listdir(CHECKS_PATH):
+    for check_py_file in sorted(os.listdir(CHECKS_PATH)):
         if check_py_file.startswith('_'):
             continue
 
@@ -26,10 +26,16 @@ def check_loader() -> list:
         import_string = CHECKS_IMPORT_PATH + check_name
         try:
             module = importlib.import_module(import_string)
-            classInstance = getattr(module, 'Check')()
-            checks.append(classInstance)
+            class_instance = getattr(module, 'Check')()
+            checks.append(class_instance)
         except ImportError as e:
-            log.warning('Missing Check %s %s', import_string, str(e))
+            log.warning(f'Missing Check {import_string} {e}')
+            continue
+        except AttributeError as e:
+            log.warning(f'Invalid Check module {import_string} {e}')
+            continue
+        except Exception as e:
+            log.warning(f'Failed loading Check {import_string} {e}')
             continue
 
     return checks
