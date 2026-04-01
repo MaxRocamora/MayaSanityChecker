@@ -33,13 +33,14 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
+            node_name = node.name()
             try:
-                cmds.lockNode(node, l=0)
-                cmds.delete(node)
+                cmds.lockNode(node_name, l=0)
+                cmds.delete(node_name)
             except RuntimeError as e:
                 log.warning(str(e))
-            except ValueError:
-                pass
+            except ValueError as e:
+                log.warning(str(e))
 
     def get_unconnected_nodes(self):
         """Collect nodes to scan from maya scene."""
