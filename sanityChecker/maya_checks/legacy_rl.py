@@ -32,7 +32,7 @@ class Check(Check):
         """Perform technical fix on this check."""
         for node in self.nodes():
             try:
-                cmds.delete(node)
+                cmds.delete(node.name())
             except RuntimeError as e:
                 log.error(str(e))
 
