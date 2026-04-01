@@ -42,5 +42,8 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            attr_name = cmds.getAttr(f'{node}.{ATTRIBUTE}')
-            cmds.setAttr(f'{node}.{ATTRIBUTE}', COLORSPACES[attr_name], type='string')
+            node_name = node.name()
+            attr_name = cmds.getAttr(f'{node_name}.{ATTRIBUTE}')
+            cmds.setAttr(
+                f'{node_name}.{ATTRIBUTE}', COLORSPACES[attr_name], type='string'
+            )
