@@ -31,8 +31,9 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            if cmds.nodeType(node) == 'displayLayer':
-                cmds.delete(node)
+            node_name = node.name()
+            if cmds.nodeType(node_name) == 'displayLayer':
+                cmds.delete(node_name)
 
     def get_display_layers(self):
         """Collect nodes to scan from maya scene."""
