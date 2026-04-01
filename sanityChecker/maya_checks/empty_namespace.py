@@ -31,8 +31,9 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
-            if cmds.namespace(exists=node):
-                cmds.namespace(rm=node)
+            node_name = node.name()
+            if cmds.namespace(exists=node_name):
+                cmds.namespace(rm=node_name)
 
     def get_empty_namespaces(self) -> list:
         """Returns empty namespaces."""
