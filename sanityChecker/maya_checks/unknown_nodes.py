@@ -31,9 +31,10 @@ class Check(Check):
     def fix(self):
         """Perform technical fix on this check."""
         for node in self.nodes():
+            node_name = node.name()
             try:
-                log.info(f'Fixing Unknown Node {node}')
-                cmds.lockNode(node, lock=False)
-                cmds.delete(node)
+                log.info(f'Fixing Unknown Node {node_name}')
+                cmds.lockNode(node_name, lock=False)
+                cmds.delete(node_name)
             except RuntimeError as e:
                 log.error(str(e))
