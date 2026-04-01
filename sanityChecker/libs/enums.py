@@ -16,10 +16,10 @@ class SeverityLevels(Enum):
 
 # rgb color for progressBar UI
 severity_colors = {
-    SeverityLevels.LOW: '46, 134, 193',
-    SeverityLevels.MODERATE: '230, 230, 0',
-    SeverityLevels.HIGH: '255, 170, 0',
-    SeverityLevels.CRITICAL: '255, 10, 10',
+    SeverityLevels.LOW.value: '46, 134, 193',
+    SeverityLevels.MODERATE.value: '230, 230, 0',
+    SeverityLevels.HIGH.value: '255, 170, 0',
+    SeverityLevels.CRITICAL.value: '255, 10, 10',
 }
 
 
