@@ -4,12 +4,12 @@
 # ----------------------------------------------------------------------------------------
 try:
     from PySide2.QtWidgets import QTreeWidgetItem
-    from PySide2.QtGui import QColor
+    from PySide2.QtGui import QColor, QBrush
 
     PYSIDE_VERSION = 2
 except ImportError:
     from PySide6.QtWidgets import QTreeWidgetItem
-    from PySide6.QtGui import QColor
+    from PySide6.QtGui import QColor, QBrush
 
     PYSIDE_VERSION = 6
 
@@ -43,7 +43,7 @@ class CategoryTreeItem(QTreeWidgetItem):
         if PYSIDE_VERSION == 2:
             self.setBackgroundColor(index, color)
         else:
-            self.setBackground(index, color)
+            self.setBackground(index, QBrush(color))
 
     def name(self):
         """Returns name of this category."""
