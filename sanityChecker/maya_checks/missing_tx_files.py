@@ -1,8 +1,9 @@
 # ----------------------------------------------------------------------------------------
 # check for missing tx files from files on file node
 # ----------------------------------------------------------------------------------------
+import glob
 import os
-import maya.cmds as cmds
+import maya.cmds as cmds  # type: ignore
 
 from sanityChecker.libs.check import Check
 from sanityChecker.libs.enums import CategoryGroups, SeverityLevels
@@ -28,11 +29,24 @@ class Check(Check):
 
         for node in self.get_non_tx_filenodes():
             filename = cmds.getAttr(f'{node}.fileTextureName')
-            filepath_no_extension = os.path.splitext(filename)[0]
-            tx_filename = f'{filepath_no_extension}.tx'
+            color_space = cmds.getAttr(f'{node}.colorSpace')
 
-            if not os.path.exists(tx_filename):
+            if not self.has_tx_file(filename, color_space):
                 self.add_failed_node(node)
+
+    @staticmethod
+    def has_tx_file(filename: str, color_space: str) -> bool:
+        """Return whether a legacy or Arnold color-space TX file exists."""
+        filepath_no_extension, extension = os.path.splitext(filename)
+        legacy_tx_filename = f'{filepath_no_extension}.tx'
+        arnold_tx_filenames = (
+            f'{filepath_no_extension}_{color_space}{extension}.tx',
+            f'{filepath_no_extension}_{color_space}_*{extension}.tx',
+            f'{filepath_no_extension}_raw{extension}.tx',
+        )
+        return os.path.exists(legacy_tx_filename) or any(
+            glob.glob(tx_filename) for tx_filename in arnold_tx_filenames
+        )
 
     def get_non_tx_filenodes(self) -> list:
         """Collect nodes to scan from maya scene."""
