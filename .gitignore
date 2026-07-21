@@ -3,4 +3,4 @@ __pycache__/
 *.sublime-workspace
 *.pyc
 *.rar
-maya_sanity.code-workspace
+*.code-workspace
